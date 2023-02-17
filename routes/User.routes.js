@@ -149,6 +149,12 @@ userRouter.delete("/delete/:id",async (req,res)=>{
     res.send({"msg":"User has been deleted"})
 })
 
+userRouter.delete("/Again/:id",async (req,res)=>{
+    const id=req.params.id
+    await UserModel.findByIdAndDelete({_id:id})
+    res.send({"msg":"User has been deleted"})
+})
+
 module.exports={
     userRouter
 }
